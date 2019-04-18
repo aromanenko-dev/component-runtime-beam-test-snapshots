@@ -1,0 +1,9 @@
+sudo: required
+
+services:
+- docker
+
+language: generic
+
+script:
+  - docker build -t components-runtime-beam-snapshots-test .
