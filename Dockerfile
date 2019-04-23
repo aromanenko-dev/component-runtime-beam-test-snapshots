@@ -1,6 +1,6 @@
 FROM maven:3-jdk-8
 
-ENV BEAM_VERSION="2.11.0" \
+ENV BEAM_VERSION="2.13.0-SNAPSHOT" \
     MAVEN_OPTS="-client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none"
 
 RUN set -ex; \
