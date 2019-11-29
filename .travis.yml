@@ -2,7 +2,7 @@ sudo: false
 language: java
 env:
   global:
-    - BEAM_VERSION="2.17.0-SNAPSHOT"
+    - BEAM_VERSION="2.18.0-SNAPSHOT"
     - MAVEN_OPTS="-client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none"
 
 before_cache:
