@@ -1,5 +1,7 @@
 FROM maven:3-jdk-8
 
+ARG BEAM_VERSION=2.16.0
+
 COPY .m2/settings.xml ${PWD}/.m2/
 
 RUN set -ex; \
