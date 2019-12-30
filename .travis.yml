@@ -1,21 +1,11 @@
-sudo: false
-language: java
+services: docker
+language: generic
 env:
   global:
     - BEAM_VERSION="2.19.0-SNAPSHOT"
 
-before_cache:
-  - rm -Rf $HOME/.m2/repository/org/talend/sdk/component
-  - find $HOME/.m2/repository/ -name *SNAPSHOT | xargs rm -Rf
-
-cache:
-  directories:
-    - "$HOME/.m2"
-
 script:
-  - git clone --depth 1 https://github.com/Talend/component-runtime
-  - cd component-runtime
-  - travis_wait 50 mvn install -B -am -pl 'component-runtime-beam' -Dbeam.version=$BEAM_VERSION
+  - docker build -t components-runtime-beam-snapshots-test .
 
 notifications:
   email: false
