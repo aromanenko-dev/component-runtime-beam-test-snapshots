@@ -11,6 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag components-runtime-beam-snapshots-test:$(date +%s)
+      run: docker build -t components-runtime-beam-snapshots-test .
       env:
         BEAM_VERSION: 2.19.0-SNAPSHOT
