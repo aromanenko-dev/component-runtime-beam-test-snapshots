@@ -5,7 +5,7 @@ env:
     - BEAM_VERSION="2.19.0-SNAPSHOT"
 
 script:
-  - docker build -t components-runtime-beam-snapshots-test .
+  - docker build -e BEAM_VERSION -t components-runtime-beam-snapshots-test .
 
 notifications:
   email: false
