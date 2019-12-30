@@ -9,4 +9,4 @@ RUN set -ex; \
 
 RUN set -ex; \
     cd component-runtime; \
-    mvn install -B -am -pl 'component-runtime-beam' -Dbeam.version=${BEAM_VERSION};
+    mvn install -Papache-snapshots -B -am -pl 'component-runtime-beam' -Dbeam.version=${BEAM_VERSION};
