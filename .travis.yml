@@ -2,7 +2,7 @@ services: docker
 language: generic
 
 script:
-  - docker build --build-arg BEAM_VERSION=2.19.0-SNAPSHOT -t components-runtime-beam-snapshots-test .
+  - docker build --build-arg BEAM_VERSION=2.20.0-SNAPSHOT -t components-runtime-beam-snapshots-test .
 
 notifications:
   email: false
