@@ -1,8 +1,13 @@
 services: docker
 language: generic
 
+matrix:
+  include:
+  - env: BEAM_VERSION=2.20.0-SNAPSHOT
+  - env: BEAM_VERSION=2.18.0
+
 script:
-  - docker build --build-arg BEAM_VERSION=2.20.0-SNAPSHOT -t components-runtime-beam-snapshots-test .
+  - docker build --build-arg BEAM_VERSION=$BEAM_VERSION -t components-runtime-beam-snapshots-test .
 
 notifications:
   email: false
