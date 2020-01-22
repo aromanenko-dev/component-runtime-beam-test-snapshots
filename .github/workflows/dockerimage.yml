@@ -7,8 +7,15 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        BEAM_VERSION:
+          - 2.18.0
+          - 2.20.0
+      fail-fast: true
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker build --build-arg BEAM_VERSION=2.19.0-SNAPSHOT -t components-runtime-beam-snapshots-test .
+      - uses: actions/checkout@v1
+      - name: Build the Docker image
+        run:
+          docker build --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} -t components-runtime-beam-snapshots-test .
