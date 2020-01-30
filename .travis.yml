@@ -3,8 +3,8 @@ language: generic
 
 matrix:
   include:
-  - env: BEAM_VERSION=2.20.0-SNAPSHOT
-  - env: BEAM_VERSION=2.18.0
+    - env: BEAM_VERSION=2.19.0
+    - env: BEAM_VERSION=2.20.0-SNAPSHOT
 
 script:
   - docker build --build-arg BEAM_VERSION=$BEAM_VERSION -t components-runtime-beam-snapshots-test .
