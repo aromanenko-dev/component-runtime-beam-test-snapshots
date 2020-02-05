@@ -6,9 +6,7 @@ on:
     - cron: '0 0 * * *' # Once per day at midnight
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,9 +14,9 @@ jobs:
           - 2.19.0
           - 2.20.0-SNAPSHOT
       fail-fast: true
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Build the Docker image
+      - name: Checkout Talend/component-runtime-beam-test-snapshots
+      - uses: actions/checkout@v2
+      - name: Run docker image
         run:
           docker build --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} -t components-runtime-beam-snapshots-test .
