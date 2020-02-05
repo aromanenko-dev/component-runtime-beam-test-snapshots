@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout Talend/component-runtime-beam-test-snapshots
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Run docker image
         run:
           docker build --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} -t components-runtime-beam-snapshots-test .
