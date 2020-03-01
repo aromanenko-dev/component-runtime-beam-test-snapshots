@@ -1,4 +1,4 @@
-name: Docker CI
+name: Talend Component Runtime Beam Test Snapshots
 on:
   push:
   schedule:
@@ -18,3 +18,12 @@ jobs:
       - name: Run docker image
         run:
           docker build --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} -t components-runtime-beam-snapshots-test .
+      - name: Slack Notification
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: apache-ci
+          SLACK_MESSAGE: Talend Component Runtime Beam Test Snapshots
+          SLACK_TITLE: Talend/component-runtime-beam-test-snapshots
+          SLACK_USERNAME: Talend/component-runtime-beam-test-snapshots
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
