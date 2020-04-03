@@ -3,7 +3,7 @@ language: generic
 
 matrix:
   include:
-    - env: BEAM_VERSION=2.19.0
+    - env: BEAM_VERSION=2.20.0
     - env: BEAM_VERSION=2.21.0-SNAPSHOT
 
 script:
