@@ -4,7 +4,7 @@ language: generic
 matrix:
   include:
     - env: BEAM_VERSION=2.20.0
-    - env: BEAM_VERSION=2.21.0-SNAPSHOT
+    - env: BEAM_VERSION=2.22.0-SNAPSHOT
 
 script:
   - docker build --build-arg BEAM_VERSION=$BEAM_VERSION -t components-runtime-beam-snapshots-test .
