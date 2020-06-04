@@ -1,6 +1,6 @@
 FROM maven:3-jdk-8
 
-ARG BEAM_VERSION=2.19.0
+ARG BEAM_VERSION=2.22.0
 
 COPY .m2/settings.xml ${PWD}/settings.xml
 
