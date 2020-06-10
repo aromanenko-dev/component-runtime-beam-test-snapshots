@@ -13,5 +13,5 @@ RUN set -ex; \
     cd component-runtime; \
     mvn install -s ../settings.xml -B -am -pl 'component-runtime-beam' \
         -Dbeam.version=${BEAM_VERSION} \
-        -Dspark.version={SPARK_VERSION} \
-        -Dspark-scala_version={SPARK_SCALA_VERSION} ;
+        -Dspark.version=${SPARK_VERSION} \
+        -Dspark-scala_version=${SPARK_SCALA_VERSION} ;

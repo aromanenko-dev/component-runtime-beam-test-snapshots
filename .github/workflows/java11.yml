@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Java 8 docker image
         run: |
-          SPARK_SCALA_VERSION=$([[ $SPARK_VERSION = "2"* ]] && echo "2.11" || echo "2.12")
+          SPARK_SCALA_VERSION=$([[ $matrix.SPARK_VERSION = "2"* ]] && echo "2.11" || echo "2.12")
           docker build \
             --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} \
             --build-arg SPARK_VERSION=${{ matrix.SPARK_VERSION }} \
