@@ -1,0 +1,38 @@
+name: Talend Component Runtime Beam Java 8 Test Snapshots
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *' # Once per day at midnight
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        BEAM_VERSION:
+          - 2.22.0
+          - 2.23.0-SNAPSHOT
+        SPARK_VERSION:
+          - 2.4.6
+          - 3.0.0
+      fail-fast: false
+    steps:
+      - name: Checkout Talend/component-runtime-beam-test-snapshots
+        uses: actions/checkout@v2
+      - name: Run Java 8 docker image
+        run: |
+          SPARK_SCALA_VERSION=$([[ $SPARK_VERSION = "2"* ]] && echo "2.11" || echo "2.12")
+          docker build \
+            --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} \
+            --build-arg SPARK_VERSION=${{ matrix.SPARK_VERSION }} \
+            --build-arg SPARK_SCALA_VERSION=$SPARK_SCALA_VERSION \
+            -t components-runtime-beam-snapshots-test \
+            -f java8/Dockerfile .
+      - name: Slack Notification
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: apache-ci
+          SLACK_MESSAGE: Talend Component Runtime Beam Test Snapshots
+          SLACK_TITLE: Talend/component-runtime-beam-test-snapshots
+          SLACK_USERNAME: Talend/component-runtime-beam-test-snapshots
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
