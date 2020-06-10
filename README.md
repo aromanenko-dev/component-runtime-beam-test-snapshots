@@ -7,6 +7,6 @@ eagerly.
 
 Current build status:
 
-- Travis: [![Build Status](https://travis-ci.org/Talend/component-runtime-beam-test-snapshots.svg?branch=master)](https://travis-ci.org/Talend/component-runtime-beam-test-snapshots/)
 - Github Actions:
-![Talend Component Runtime Beam Test Snapshots](https://github.com/Talend/component-runtime-beam-test-snapshots/workflows/Talend%20Component%20Runtime%20Beam%20Test%20Snapshots/badge.svg)
+![Talend Component Runtime Beam Java 8 Test Snapshots](https://github.com/Talend/component-runtime-beam-test-snapshots/workflows/Talend%20Component%20Runtime%20Beam%20Java%208%20Test%20Snapshots/badge.svg)
+![Talend Component Runtime Beam Java 11 Test Snapshots](https://github.com/Talend/component-runtime-beam-test-snapshots/workflows/Talend%20Component%20Runtime%20Beam%20Java%2011%20Test%20Snapshots/badge.svg)
