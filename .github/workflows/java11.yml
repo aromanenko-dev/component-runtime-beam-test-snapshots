@@ -13,13 +13,14 @@ jobs:
           - 2.23.0-SNAPSHOT
         SPARK_VERSION:
           - 3.0.0
+        SPARK_SCALA_VERSION:
+          - 2.12
       fail-fast: false
     steps:
       - name: Checkout Talend/component-runtime-beam-test-snapshots
         uses: actions/checkout@v2
       - name: Run Java 11 docker image
         run: |
-          SPARK_SCALA_VERSION=$([[ $matrix.SPARK_VERSION = "2"* ]] && echo "2.11" || echo "2.12")
           docker build \
             --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} \
             --build-arg SPARK_VERSION=${{ matrix.SPARK_VERSION }} \
