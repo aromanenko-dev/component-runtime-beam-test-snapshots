@@ -24,7 +24,7 @@ jobs:
           docker build \
             --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} \
             --build-arg SPARK_VERSION=${{ matrix.SPARK_VERSION }} \
-            --build-arg SPARK_SCALA_VERSION=$SPARK_SCALA_VERSION \
+            --build-arg SPARK_SCALA_VERSION=${{ matrix.SPARK_SCALA_VERSION }} \
             -t components-runtime-beam-snapshots-test \
             -f java11/Dockerfile .
       - name: Slack Notification
