@@ -27,13 +27,13 @@ jobs:
             --build-arg SPARK_SCALA_VERSION=${{ matrix.SPARK_SCALA_VERSION }} \
             -t components-runtime-beam-snapshots-test \
             -f java11/Dockerfile .
-      - name: Slack Notification
-        if: failure()
-        uses: rtCamp/action-slack-notify@v2.0.2
-        env:
-          SLACK_CHANNEL: apache-ci
-          SLACK_MESSAGE: Talend Component Runtime Beam Test Snapshots
-          SLACK_TITLE: Talend/component-runtime-beam-test-snapshots
-          SLACK_COLOR: '#D4383F'
-          SLACK_USERNAME: Talend/component-runtime-beam-test-snapshots
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      # - name: Slack Notification
+      #   if: failure()
+      #   uses: rtCamp/action-slack-notify@v2.0.2
+      #   env:
+      #     SLACK_CHANNEL: apache-ci
+      #     SLACK_MESSAGE: Talend Component Runtime Beam Test Snapshots
+      #     SLACK_TITLE: Talend/component-runtime-beam-test-snapshots
+      #     SLACK_COLOR: '#D4383F'
+      #     SLACK_USERNAME: Talend/component-runtime-beam-test-snapshots
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
