@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         BEAM_VERSION:
-          - 2.25.0
+          - 2.26.0
           - 2.27.0-SNAPSHOT
         SPARK_VERSION:
           - 2.4.6
