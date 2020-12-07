@@ -12,7 +12,7 @@ jobs:
           - 2.26.0
           - 2.27.0-SNAPSHOT
         SPARK_VERSION:
-          - 3.0.0
+          - 3.0.1
         SPARK_SCALA_VERSION:
           - 2.12
       fail-fast: false
