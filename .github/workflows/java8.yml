@@ -2,7 +2,7 @@ name: Java 8
 on:
   push:
   schedule:
-    - cron: '0 0 * * *' # Once per day at midnight
+    - cron: '0 4 * * *' # Once per day at midnight
 jobs:
   build:
     runs-on: ubuntu-latest
