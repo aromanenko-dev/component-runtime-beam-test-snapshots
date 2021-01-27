@@ -10,7 +10,7 @@ jobs:
       matrix:
         BEAM_VERSION:
           - 2.27.0
-          - 2.28.0-SNAPSHOT
+          - 2.29.0-SNAPSHOT
         SPARK_VERSION:
           - 2.4.7
           - 3.0.1
