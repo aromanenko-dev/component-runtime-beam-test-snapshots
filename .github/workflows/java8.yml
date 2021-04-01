@@ -12,20 +12,20 @@ jobs:
           - 2.28.0
           - 2.30.0-SNAPSHOT
         SPARK_VERSION:
-          - 2.4.7
           - 3.0.2
           - 3.1.1
+        SPARK_SCALA_VERSION:
+          - 2.12
       fail-fast: false
     steps:
       - name: Checkout Talend/component-runtime-beam-test-snapshots
         uses: actions/checkout@v2
       - name: Run Java 8 docker image
         run: |
-          SPARK_SCALA_VERSION=$([[ $matrix.SPARK_VERSION = "2"* ]] && echo "2.11" || echo "2.12")
           docker build \
             --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} \
             --build-arg SPARK_VERSION=${{ matrix.SPARK_VERSION }} \
-            --build-arg SPARK_SCALA_VERSION=$SPARK_SCALA_VERSION \
+            --build-arg SPARK_SCALA_VERSION=${{ matrix.SPARK_SCALA_VERSION }} \
             -t components-runtime-beam-snapshots-test \
             -f java8/Dockerfile .
       # - name: Slack Notification
