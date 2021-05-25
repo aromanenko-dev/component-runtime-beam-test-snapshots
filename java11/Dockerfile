@@ -1,4 +1,4 @@
-FROM maven:3-jdk-11
+FROM maven:3-openjdk-11
 
 ARG BEAM_VERSION=2.29.0
 ARG SPARK_VERSION=3.1.1

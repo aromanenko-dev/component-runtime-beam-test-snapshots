@@ -1,4 +1,4 @@
-FROM maven:3-jdk-8
+FROM maven:3-openjdk-8
 
 ARG BEAM_VERSION=2.29.0
 ARG SPARK_VERSION=3.1.1
