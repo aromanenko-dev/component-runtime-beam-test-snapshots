@@ -1,0 +1,39 @@
+name: Java 17
+on:
+  push:
+  schedule:
+    # Once a day from monday to friday after the daily SNAPSHOTS are published
+    - cron: '0 12 * * 1-5'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        BEAM_VERSION:
+          - 2.31.0-SNAPSHOT
+        SPARK_VERSION:
+          - 3.1.1
+        SPARK_SCALA_VERSION:
+          - 2.12
+      fail-fast: false
+    steps:
+      - name: Checkout Talend/component-runtime-beam-test-snapshots
+        uses: actions/checkout@v2
+      - name: Run Java 17 docker image
+        run: |
+          docker build \
+            --build-arg BEAM_VERSION=${{ matrix.BEAM_VERSION }} \
+            --build-arg SPARK_VERSION=${{ matrix.SPARK_VERSION }} \
+            --build-arg SPARK_SCALA_VERSION=${{ matrix.SPARK_SCALA_VERSION }} \
+            -t components-runtime-beam-snapshots-test \
+            -f java17/Dockerfile .
+      # - name: Slack Notification
+      #   if: failure()
+      #   uses: rtCamp/action-slack-notify@v2.0.2
+      #   env:
+      #     SLACK_CHANNEL: apache-ci
+      #     SLACK_MESSAGE: Talend Component Runtime Beam Test Snapshots
+      #     SLACK_TITLE: Talend/component-runtime-beam-test-snapshots
+      #     SLACK_COLOR: '#D4383F'
+      #     SLACK_USERNAME: Talend/component-runtime-beam-test-snapshots
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
