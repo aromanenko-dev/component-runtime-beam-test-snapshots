@@ -1,7 +1,7 @@
 FROM maven:3-openjdk-11
 
 ARG BEAM_VERSION=2.29.0
-ARG SPARK_VERSION=3.1.1
+ARG SPARK_VERSION=3.1.2
 ARG SPARK_SCALA_VERSION=2.12
 
 COPY .m2/settings.xml ${PWD}/settings.xml
