@@ -12,7 +12,7 @@ jobs:
         BEAM_VERSION:
           - 2.31.0-SNAPSHOT
         SPARK_VERSION:
-          - 3.1.2
+          - 3.2.0-SNAPSHOT
         SPARK_SCALA_VERSION:
           - 2.12
       fail-fast: false
